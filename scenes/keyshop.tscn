@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://df8j4de1gtt88"]
+
+[ext_resource type="Script" uid="uid://bjlmqd54do2d" path="res://miner_game/scripts/keyshop.gd" id="1_24mvk"]
+[ext_resource type="Texture2D" uid="uid://c430fq0hqspym" path="res://miner_game/art/characters/idle.png" id="2_uoj73"]
+[ext_resource type="PackedScene" uid="uid://ccmiwf6eob2w2" path="res://miner_game/scenes/shopmenu.tscn" id="3_uoj73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwdrn"]
+atlas = ExtResource("2_uoj73")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fh1cx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwdrn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xu3od"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1wkx"]
+radius = 15.0
+
+[node name="keyshop" type="StaticBody2D"]
+script = ExtResource("1_24mvk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fh1cx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_xu3od")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_e1wkx")
+
+[node name="SHOPMENU" parent="Area2D" instance=ExtResource("3_uoj73")]
+visible = false
+position = Vector2(-483, -329)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

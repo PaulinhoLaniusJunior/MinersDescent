@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccmiwf6eob2w2"]
+
+[ext_resource type="Script" uid="uid://vm5d6on60352" path="res://miner_game/scripts/shopmenu.gd" id="1_fd2go"]
+[ext_resource type="Texture2D" uid="uid://bqcshj3yu4lt8" path="res://miner_game/art/objects/pikareta.png" id="2_wu7g0"]
+[ext_resource type="Texture2D" uid="uid://bg2ujwgrjva87" path="res://miner_game/art/objects/stone_2.png" id="3_twlj4"]
+[ext_resource type="Texture2D" uid="uid://cbybtim7c0xun" path="res://miner_game/art/candleA_02.png" id="4_srd38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu7g0"]
+size = Vector2(1153, 649)
+
+[node name="SHOPMENU" type="StaticBody2D"]
+position = Vector2(-3, 0)
+script = ExtResource("1_fd2go")
+
+[node name="menu" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="menu"]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 392.0
+color = Color(0, 0, 0, 0.686275)
+
+[node name="Label" type="Label" parent="menu"]
+offset_left = 816.0
+offset_top = 152.0
+offset_right = 853.0
+offset_bottom = 175.0
+text = "200k"
+
+[node name="Label2" type="Label" parent="menu"]
+offset_left = 568.0
+offset_top = 144.0
+offset_right = 600.0
+offset_bottom = 167.0
+text = "20k"
+
+[node name="Area2D" type="Area2D" parent="menu"]
+visible = false
+position = Vector2(-3, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/Area2D"]
+position = Vector2(575.5, 323.5)
+shape = SubResource("RectangleShape2D_wu7g0")
+
+[node name="buyKey1" type="TouchScreenButton" parent="menu"]
+position = Vector2(256, 192)
+scale = Vector2(4.57143, 5.81818)
+texture_normal = ExtResource("2_wu7g0")
+
+[node name="buyKey2" type="TouchScreenButton" parent="menu"]
+position = Vector2(512, 192)
+scale = Vector2(2.56, 2.56)
+texture_normal = ExtResource("3_twlj4")
+
+[node name="buyKey3" type="TouchScreenButton" parent="menu"]
+position = Vector2(768, 192)
+scale = Vector2(18.2857, 8.53333)
+texture_normal = ExtResource("4_srd38")
+
+[node name="Label3" type="Label" parent="menu"]
+offset_left = 312.0
+offset_top = 152.0
+offset_right = 331.0
+offset_bottom = 175.0
+text = "5k"
+
+[connection signal="body_entered" from="menu/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="menu/buyKey1" to="." method="_on_buy_key_1_pressed"]
+[connection signal="pressed" from="menu/buyKey2" to="." method="_on_buy_key_2_pressed"]
+[connection signal="pressed" from="menu/buyKey3" to="." method="_on_buy_key_3_pressed"]
