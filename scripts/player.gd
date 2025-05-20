@@ -1,28 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
-#status
-@export var money = 5000
-var health = 200
-const speed = 70
-var player_alive = true
-
 #skills
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var current_dir = "none"
 var mining_ip = false
 var attack_ip = false
-
-#keys
-var key1 = false
-var key2 = false
-var key3 = false
-
-
-
-func update_money(value : int):
-	money += value
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -34,31 +18,31 @@ func _physics_process(delta):
 	enemy_attack()
 	update_health()
 	
-	if health <= 0:
-		player_alive = false
-		health = 0
+	if global.health <= 0:
+		global.player_alive = false
+		global.health = 0
 		self.queue_free()
 
 func player_moviment(delta):
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
 		play_anim(1)
-		velocity.x = speed
+		velocity.x = global.speed
 		velocity.y = 0
 	elif Input.is_action_pressed("ui_left"):
 		play_anim(1)
 		current_dir = "left"
-		velocity.x = -speed
+		velocity.x = -global.speed
 		velocity.y = 0
 	elif Input.is_action_pressed("ui_down"):
 		play_anim(1)
 		current_dir = "down"
-		velocity.y = speed
+		velocity.y = global.speed
 		velocity.x = 0
 	elif Input.is_action_pressed("ui_up"):
 		play_anim(1)
 		current_dir = "up"
-		velocity.y = -speed
+		velocity.y = -global.speed
 		velocity.x = 0
 	else:
 		play_anim(0)
@@ -166,10 +150,10 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+		global.health = global.health - 20
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print("Player = ", health)
+		print("Player = ", global.health)
 
 
 func _on_attack_cooldown_timeout() -> void:
@@ -177,21 +161,21 @@ func _on_attack_cooldown_timeout() -> void:
 
 func update_health():
 	var healthbar = $healthbar
-	healthbar.value = health
+	healthbar.value = global.health
 	
-	if health >= 200:
+	if global.health >= 200:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
 
 
 func _on_regin_timer_timeout() -> void:
-	if health < 200:
-		health = health + 20
-		if health > 200:
-			health = 200
-	if health <= 0:
-		health = 0
+	if global.health < 200:
+		global.health = global.health + 20
+		if global.health > 200:
+			global.health = 200
+	if global.health <= 0:
+		global.health = 0
 
 func player_shop_method():
 	pass

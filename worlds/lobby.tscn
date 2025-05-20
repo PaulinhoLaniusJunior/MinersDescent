@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=4 uid="uid://blkhhaa5tmdqk"]
+[gd_scene load_steps=51 format=4 uid="uid://blkhhaa5tmdqk"]
 
 [ext_resource type="Texture2D" uid="uid://dlg8r2kl2vlw4" path="res://art/world2/Set 1.0.png" id="1_0l0lq"]
+[ext_resource type="Script" uid="uid://drk4g47l12ujf" path="res://worlds/levels.gd" id="1_v414r"]
 [ext_resource type="Texture2D" uid="uid://cgs6vxgcu300t" path="res://art/world2/DALL-�E 2025-03-23 16.23.14 - A top-down view of an underground cave map. The cave has rocky walls with irregular shapes and a dirt-covered floor. There are glowing moss patches, s.webp" id="2_w2ot5"]
 [ext_resource type="Texture2D" uid="uid://44hdnwkfsa2p" path="res://art/world2/Set 1.2.png" id="3_v414r"]
 [ext_resource type="Texture2D" uid="uid://haqu3nljlbjf" path="res://art/world2/Set 4.5.png" id="4_c01pg"]
@@ -20,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://1wbuavwxpk1b" path="res://scenes/money.tscn" id="18_856la"]
 [ext_resource type="PackedScene" uid="uid://df8j4de1gtt88" path="res://scenes/keyshop.tscn" id="19_eefjw"]
 [ext_resource type="AudioStream" uid="uid://chi8esxwuvbl4" path="res://sounds/soundLobby.wav" id="20_fjos0"]
+[ext_resource type="PackedScene" uid="uid://1d0i3uhpdmj" path="res://scenes/door.tscn" id="21_w2ot5"]
+[ext_resource type="PackedScene" uid="uid://dw7g07qfkmyhw" path="res://scenes/transition.tscn" id="23_c01pg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_0l0lq")
@@ -5603,6 +5606,7 @@ sources/5 = SubResource("TileSetAtlasSource_y8cvn")
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_v414r")
 
 [node name="groud" type="TileMapLayer" parent="."]
 position = Vector2(1, 0)
@@ -5654,3 +5658,13 @@ position = Vector2(176, 324)
 stream = ExtResource("20_fjos0")
 volume_db = -40.026
 autoplay = true
+
+[node name="door" parent="." node_paths=PackedStringArray("transition_controller") instance=ExtResource("21_w2ot5")]
+position = Vector2(454, 585)
+next_level = "res://worlds/world_2.tscn"
+transition_controller = NodePath("../CanvasLayer")
+
+[node name="world2" type="Marker2D" parent="."]
+position = Vector2(426, 585)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("23_c01pg")]

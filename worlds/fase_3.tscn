@@ -26875,8 +26875,10 @@ limit_right = 470
 limit_bottom = 448
 
 [node name="Controls" parent="." instance=ExtResource("10_1fjl4")]
+visible = false
 
 [node name="Control" parent="Controls" instance=ExtResource("11_1fjl4")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

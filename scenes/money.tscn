@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://1wbuavwxpk1b"]
+[gd_scene load_steps=5 format=3 uid="uid://1wbuavwxpk1b"]
 
-[ext_resource type="Texture2D" uid="uid://cn6xjmouei1d4" path="res://miner_game/art/Coin Sheet.png" id="1_ty2nq"]
-[ext_resource type="Script" uid="uid://w4jvwlh523xj" path="res://miner_game/scripts/money.gd" id="1_u5i7v"]
+[ext_resource type="Texture2D" uid="uid://cn6xjmouei1d4" path="res://art/Coin Sheet.png" id="1_ty2nq"]
+[ext_resource type="Script" uid="uid://w4jvwlh523xj" path="res://scripts/money.gd" id="1_u5i7v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ty2nq"]
 atlas = ExtResource("1_ty2nq")
@@ -17,9 +17,6 @@ animations = [{
 "name": &"coin",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2nq"]
-size = Vector2(1152, 648)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -44,11 +41,3 @@ position = Vector2(41, 22)
 scale = Vector2(3.96875, 3.96875)
 sprite_frames = SubResource("SpriteFrames_5tm3n")
 animation = &"coin"
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(576, 324)
-shape = SubResource("RectangleShape2D_ty2nq")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

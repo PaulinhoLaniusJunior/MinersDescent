@@ -1,12 +1,12 @@
 [gd_scene load_steps=73 format=3 uid="uid://bspos3bu2rea4"]
 
-[ext_resource type="Script" uid="uid://dj4211v5htitq" path="res://miner_game/scripts/player.gd" id="1_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://j4hop6e0ab8g" path="res://miner_game/art/characters/attack.png" id="2_nfrxb"]
-[ext_resource type="Texture2D" uid="uid://dmdx4832a7f0j" path="res://miner_game/art/characters/idle_n.png" id="2_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://bn06ocpdbwe3u" path="res://miner_game/art/characters/walk_NN.png" id="3_dqkch"]
-[ext_resource type="Texture2D" uid="uid://dtrpcdehjxpg5" path="res://miner_game/art/characters/death.png" id="4_smehm"]
-[ext_resource type="Texture2D" uid="uid://bb4rt4o43vrtq" path="res://miner_game/art/characters/mining_side.png" id="6_nfrxb"]
-[ext_resource type="Texture2D" uid="uid://cmknjn1k0g01q" path="res://miner_game/art/characters/mining-back.png" id="6_qpoa7"]
+[ext_resource type="Script" uid="uid://dj4211v5htitq" path="res://scripts/player.gd" id="1_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://j4hop6e0ab8g" path="res://art/characters/attack.png" id="2_nfrxb"]
+[ext_resource type="Texture2D" uid="uid://dmdx4832a7f0j" path="res://art/characters/idle_n.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bn06ocpdbwe3u" path="res://art/characters/walk_NN.png" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://dtrpcdehjxpg5" path="res://art/characters/death.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://bb4rt4o43vrtq" path="res://art/characters/mining_side.png" id="6_nfrxb"]
+[ext_resource type="Texture2D" uid="uid://cmknjn1k0g01q" path="res://art/characters/mining-back.png" id="6_qpoa7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlhmh"]
 atlas = ExtResource("2_nfrxb")

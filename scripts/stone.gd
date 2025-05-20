@@ -33,13 +33,13 @@ func deal_with_damage():
 	if player_inattack_zone and global.player_current_mining == true:
 		if can_take_damage == true:
 			health = health - global.MinerDamage
-			player.money += global.MinerDamage
-			print(player.money)
+			global.money += global.MinerDamage
+			print(global.money)
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("stone = ", health)
 			if health <= 0:
-				player.money += bonusMoney
+				global.money += bonusMoney
 				self.queue_free()
 
 

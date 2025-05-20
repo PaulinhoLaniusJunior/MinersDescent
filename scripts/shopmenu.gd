@@ -17,35 +17,35 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func buy():
 	if comprandochave == 1:
-			player.money -= priceKey1
-			player.key1 = true
+			global.money -= priceKey1
+			global.key1 = true
 	if comprandochave == 2:
-			player.money -= priceKey2
-			player.key2 = true
+			global.money -= priceKey2
+			global.key2 = true
 	if comprandochave == 3:
-			player.money -= priceKey3
-			player.key3 = true
+			global.money -= priceKey3
+			global.key3 = true
 
 
 func _on_buy_key_1_pressed() -> void:
 	print("botao apertado")
 	comprandochave = 1
-	if player.money >= priceKey1:
-		if player.key1 == false:
+	if global.money >= priceKey1:
+		if global.key1 == false:
 			buy()
 
 
 func _on_buy_key_2_pressed() -> void:
 	print("botao 2 apertado")
 	comprandochave = 2
-	if player.money >= priceKey2:
-		if player.key2 == false:
+	if global.money >= priceKey2:
+		if global.key2 == false:
 			buy()
 
 
 func _on_buy_key_3_pressed() -> void:
 	print("botao 3 apertado")
 	comprandochave = 3
-	if player.money >= priceKey3:
-		if player.key3 == false:
+	if global.money >= priceKey3:
+		if global.key3 == false:
 			buy()
