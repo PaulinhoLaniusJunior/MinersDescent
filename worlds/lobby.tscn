@@ -5668,3 +5668,4 @@ transition_controller = NodePath("../CanvasLayer")
 position = Vector2(426, 585)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("23_c01pg")]
+visible = false

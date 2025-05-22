@@ -106,7 +106,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Exit"
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer"]
+
 [node name="Label" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

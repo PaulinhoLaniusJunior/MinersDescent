@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var player = null
-var bonusMoney = 100
+var bonusMoney = 50
 var health = 100
 var player_inattack_zone = false
 var can_take_damage = true

@@ -24,6 +24,11 @@ func _physics_process(delta):
 		self.queue_free()
 
 func player_moviment(delta):
+	if mining_ip or attack_ip:
+		velocity = Vector2.ZERO  # Define a velocidade como zero
+		play_anim(0)  # Garante que a animação fique no estado de idle
+		return
+		
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
 		play_anim(1)
@@ -104,7 +109,7 @@ func mining():
 			$AnimatedSprite2D.play("mining_back")
 			$deal_miner_time.start()
 		if dir == "down":
-			$AnimatedSprite2D.play("mining")
+			$AnimatedSprite2D.play("front_mining")
 			$deal_miner_time.start()
 
 func _on_deal_miner_time_timeout() -> void:
