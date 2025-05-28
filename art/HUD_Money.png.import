@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cogucanhmx7lb"
-path="res://.godot/imported/Set 1.2.png-9dc70646bc252b089c55b3c78f10d4d6.ctex"
+uid="uid://sqedwpwn6a3g"
+path="res://.godot/imported/HUD_Money.png-b2006078091987f6511a69b53e343117.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/Set 1.2.png"
-dest_files=["res://.godot/imported/Set 1.2.png-9dc70646bc252b089c55b3c78f10d4d6.ctex"]
+source_file="res://art/HUD_Money.png"
+dest_files=["res://.godot/imported/HUD_Money.png-b2006078091987f6511a69b53e343117.ctex"]
 
 [params]
 

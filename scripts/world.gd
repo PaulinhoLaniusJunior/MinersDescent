@@ -16,5 +16,5 @@ func _on_transition_mine_body_exited(body):
 func change_scene():
 	if global.transition_scene == true:
 		if global.current_scene == "world":
-			get_tree().change_scene_to_file("res://miner_game/scenes/world2.tscn")
+			get_tree().change_scene_to_file("res://miner_game/scenes/worlds/world2.tscn")
 			global.finish_changescenes()

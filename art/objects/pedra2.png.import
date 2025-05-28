@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cogucanhmx7lb"
-path="res://.godot/imported/Set 1.2.png-9dc70646bc252b089c55b3c78f10d4d6.ctex"
+uid="uid://bdcq2fjli5ckj"
+path="res://.godot/imported/pedra2.png-1d56ae8b750f69cc694ad7306aa033a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/Set 1.2.png"
-dest_files=["res://.godot/imported/Set 1.2.png-9dc70646bc252b089c55b3c78f10d4d6.ctex"]
+source_file="res://art/objects/pedra2.png"
+dest_files=["res://.godot/imported/pedra2.png-1d56ae8b750f69cc694ad7306aa033a9.ctex"]
 
 [params]
 

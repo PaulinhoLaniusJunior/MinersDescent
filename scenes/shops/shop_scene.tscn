@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://dac5prskil35w"]
+
+[ext_resource type="Script" uid="uid://dyb07u52c4gmo" path="res://scripts/shops/shop_scene.gd" id="1_rryo0"]
+
+[node name="ShopScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_rryo0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UpgradesContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 1024.0
+offset_bottom = 512.0
+
+[node name="MiningDamageUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer"]
+layout_mode = 2
+
+[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/MiningDamageUpgradeButton"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 106.0
+offset_right = 305.0
+offset_bottom = 170.0
+text = "Minnig
+"
+
+[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/MiningDamageUpgradeButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.089
+anchor_top = -2.051
+anchor_right = -0.089
+anchor_bottom = -2.051
+offset_left = -39.99
+offset_top = -72.011
+offset_right = 152.01
+offset_bottom = -8.01099
+text = "level
+"
+
+[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/MiningDamageUpgradeButton"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 18.0
+offset_right = 314.0
+offset_bottom = 42.0
+text = "10"
+
+[node name="AttackDamageUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer"]
+layout_mode = 2
+
+[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/AttackDamageUpgradeButton"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 213.0
+offset_right = 274.0
+offset_bottom = 277.0
+
+[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/AttackDamageUpgradeButton"]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 44.0
+offset_right = 764.0
+offset_bottom = 108.0
+
+[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/AttackDamageUpgradeButton"]
+layout_mode = 0
+offset_left = 483.0
+offset_top = -5.0
+offset_right = 555.0
+offset_bottom = 18.0
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/UpgradesContainer"]
+layout_mode = 2
