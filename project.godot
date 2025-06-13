@@ -11,11 +11,16 @@ config_version=5
 [application]
 
 config/name="ProjectGame"
+run/main_scene="uid://bmfyax4ic5sly"
 config/features=PackedStringArray("4.4", "Mobile")
 
 [autoload]
 
 global="*res://scripts/global.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 

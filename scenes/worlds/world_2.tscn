@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dljwws5op471k"]
+[gd_scene load_steps=47 format=4 uid="uid://dljwws5op471k"]
 
 [ext_resource type="Script" uid="uid://drk4g47l12ujf" path="res://scripts/levels.gd" id="1_ghnoc"]
 [ext_resource type="PackedScene" uid="uid://1d0i3uhpdmj" path="res://scenes/door.tscn" id="2_cafvj"]
@@ -15,8 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://bspos3bu2rea4" path="res://scenes/characters/player.tscn" id="13_e7mfl"]
 [ext_resource type="PackedScene" uid="uid://2v16qmkjxcl8" path="res://scenes/controls.tscn" id="14_pr846"]
 [ext_resource type="PackedScene" uid="uid://1wbuavwxpk1b" path="res://scenes/money.tscn" id="15_n616n"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="16_e201t"]
 [ext_resource type="PackedScene" uid="uid://i48rqn4chhhk" path="res://scenes/stones/stone.tscn" id="16_xlaem"]
 [ext_resource type="PackedScene" uid="uid://dw7g07qfkmyhw" path="res://scenes/transition.tscn" id="17_ehhqy"]
+[ext_resource type="PackedScene" uid="uid://btfpvi1i21x0a" path="res://scenes/characters/enemy.tscn" id="18_cafvj"]
+[ext_resource type="AudioStream" uid="uid://crhv8m3wbie5u" path="res://sounds/music_fase2.wav" id="19_q8m0y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8pcj"]
 texture = ExtResource("3_q8m0y")
@@ -32880,13 +32883,15 @@ sources/7 = SubResource("TileSetAtlasSource_mas4l")
 
 [node name="world2" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(1, 0)
+position = Vector2(1, -1)
 script = ExtResource("1_ghnoc")
 
-[node name="door" parent="." node_paths=PackedStringArray("transition_controller") instance=ExtResource("2_cafvj")]
+[node name="door" parent="." node_paths=PackedStringArray("transition_controller", "feedback_label") instance=ExtResource("2_cafvj")]
 position = Vector2(224, 91)
 next_level = "res://scenes/worlds/lobby.tscn"
+required_key_flag = "key1"
 transition_controller = NodePath("../CanvasLayer")
+feedback_label = NodePath("../Controls/Label")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -32921,40 +32926,75 @@ limit_bottom = 441
 
 [node name="Control" parent="Controls" instance=ExtResource("15_n616n")]
 
+[node name="Label" type="Label" parent="Controls"]
+offset_left = 456.0
+offset_right = 920.0
+offset_bottom = 88.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("16_e201t")
+text = "Passagem Bloqueada
+(compre a chave com o guerreiro)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="stone" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(57, 176)
+position = Vector2(58, 192)
 
 [node name="stone2" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(130, 159)
+position = Vector2(118, 145)
 
 [node name="stone3" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(211, 168)
+position = Vector2(289, 162)
 
 [node name="stone4" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(282, 199)
+position = Vector2(245, 227)
 
 [node name="stone5" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(240, 251)
-
-[node name="stone6" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(287, 306)
+position = Vector2(290, 289)
 
 [node name="stone7" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(237, 349)
-
-[node name="stone8" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(97, 288)
-
-[node name="stone9" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(174, 323)
+position = Vector2(228, 353)
 
 [node name="stone10" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(114, 349)
+position = Vector2(139, 359)
 
 [node name="stone11" parent="." instance=ExtResource("16_xlaem")]
-position = Vector2(44, 323)
+position = Vector2(53, 331)
 
 [node name="lobby" type="Marker2D" parent="."]
 position = Vector2(224, 121)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("17_ehhqy")]
+
+[node name="door2" parent="." node_paths=PackedStringArray("transition_controller", "feedback_label") instance=ExtResource("2_cafvj")]
+position = Vector2(40, 232)
+next_level = "res://scenes/worlds/fase_3.tscn"
+required_key_flag = "key2"
+transition_controller = NodePath("../CanvasLayer")
+feedback_label = NodePath("../Controls/Label")
+
+[node name="fase3" type="Marker2D" parent="."]
+position = Vector2(68, 233)
+
+[node name="enemy" parent="." instance=ExtResource("18_cafvj")]
+position = Vector2(198, 262)
+
+[node name="enemy2" parent="." instance=ExtResource("18_cafvj")]
+position = Vector2(288, 344)
+
+[node name="enemy3" parent="." instance=ExtResource("18_cafvj")]
+position = Vector2(293, 216)
+
+[node name="enemy4" parent="." instance=ExtResource("18_cafvj")]
+position = Vector2(68, 135)
+
+[node name="enemy5" parent="." instance=ExtResource("18_cafvj")]
+position = Vector2(88, 259)
+
+[node name="enemy6" parent="." instance=ExtResource("18_cafvj")]
+position = Vector2(87, 359)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_q8m0y")
+volume_db = -24.163
+autoplay = true

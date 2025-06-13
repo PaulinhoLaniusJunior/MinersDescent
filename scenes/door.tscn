@@ -11,4 +11,4 @@ script = ExtResource("1_li2wr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_28mks")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

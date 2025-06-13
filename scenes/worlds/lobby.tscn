@@ -1,8 +1,8 @@
-[gd_scene load_steps=52 format=4 uid="uid://blkhhaa5tmdqk"]
+[gd_scene load_steps=54 format=4 uid="uid://blkhhaa5tmdqk"]
 
 [ext_resource type="Script" uid="uid://drk4g47l12ujf" path="res://scripts/levels.gd" id="1_qmtvs"]
 [ext_resource type="Texture2D" uid="uid://dlg8r2kl2vlw4" path="res://art/world2/Set 1.0.png" id="2_khgny"]
-[ext_resource type="Texture2D" uid="uid://cgs6vxgcu300t" path="res://art/world2/DALL-�E 2025-03-23 16.23.14 - A top-down view of an underground cave map. The cave has rocky walls with irregular shapes and a dirt-covered floor. There are glowing moss patches, s.webp" id="3_4ekc7"]
+[ext_resource type="Texture2D" uid="uid://cgs6vxgcu300t" path="res://art/world2/DALL-´+¢E 2025-03-23 16.23.14 - A top-down view of an underground cave map. The cave has rocky walls with irregular shapes and a dirt-covered floor. There are glowing moss patches, s.webp" id="3_4ekc7"]
 [ext_resource type="Texture2D" uid="uid://44hdnwkfsa2p" path="res://art/world2/Set 1.2.png" id="4_3vqbh"]
 [ext_resource type="Texture2D" uid="uid://haqu3nljlbjf" path="res://art/world2/Set 4.5.png" id="5_un5q3"]
 [ext_resource type="Texture2D" uid="uid://cgc4wu31up4gu" path="res://art/world2/Set 1.3.png" id="6_27yiw"]
@@ -19,11 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://bspos3bu2rea4" path="res://scenes/characters/player.tscn" id="17_o4s56"]
 [ext_resource type="PackedScene" uid="uid://2v16qmkjxcl8" path="res://scenes/controls.tscn" id="18_35032"]
 [ext_resource type="PackedScene" uid="uid://1wbuavwxpk1b" path="res://scenes/money.tscn" id="19_d6u2m"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="20_3vqbh"]
 [ext_resource type="PackedScene" uid="uid://df8j4de1gtt88" path="res://scenes/shops/keyshop.tscn" id="20_kyx2e"]
 [ext_resource type="AudioStream" uid="uid://chi8esxwuvbl4" path="res://sounds/soundLobby.wav" id="21_205bf"]
 [ext_resource type="PackedScene" uid="uid://1d0i3uhpdmj" path="res://scenes/door.tscn" id="22_7k4ca"]
 [ext_resource type="PackedScene" uid="uid://dw7g07qfkmyhw" path="res://scenes/transition.tscn" id="23_p5hua"]
 [ext_resource type="PackedScene" uid="uid://ceve7n3uff4nn" path="res://scenes/characters/ferreiro.tscn" id="24_khgny"]
+[ext_resource type="PackedScene" uid="uid://1342mmoikknm" path="res://scenes/stones/stone_lobby.tscn" id="25_4ekc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("2_khgny")
@@ -5639,6 +5641,17 @@ limit_bottom = 624
 
 [node name="Control" parent="Controls" instance=ExtResource("19_d6u2m")]
 
+[node name="Label" type="Label" parent="Controls"]
+offset_left = 456.0
+offset_right = 920.0
+offset_bottom = 88.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("20_3vqbh")
+text = "Passagem Bloqueada
+(compre a chave com o guerreiro)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -5651,19 +5664,17 @@ polygon = PackedVector2Array(289, 368, 289, 304, 337, 304, 337, 368)
 position = Vector2(0, 96)
 polygon = PackedVector2Array(289, 368, 289, 304, 337, 304, 337, 368)
 
-[node name="keyshop" parent="." instance=ExtResource("20_kyx2e")]
-visible = false
-position = Vector2(161, 302)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_205bf")
-volume_db = -40.026
+volume_db = -26.0
 autoplay = true
 
-[node name="door" parent="." node_paths=PackedStringArray("transition_controller") instance=ExtResource("22_7k4ca")]
+[node name="door" parent="." node_paths=PackedStringArray("transition_controller", "feedback_label") instance=ExtResource("22_7k4ca")]
 position = Vector2(454, 585)
 next_level = "res://scenes/worlds/world_2.tscn"
+required_key_flag = "key1"
 transition_controller = NodePath("../CanvasLayer")
+feedback_label = NodePath("../Controls/Label")
 
 [node name="world2" type="Marker2D" parent="."]
 position = Vector2(426, 585)
@@ -5671,5 +5682,10 @@ position = Vector2(426, 585)
 [node name="CanvasLayer" parent="." instance=ExtResource("23_p5hua")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("24_khgny")]
-visible = false
-position = Vector2(123, 297)
+position = Vector2(141, 292)
+
+[node name="keyshop" parent="." instance=ExtResource("20_kyx2e")]
+position = Vector2(414, 552)
+
+[node name="stone" parent="." instance=ExtResource("25_4ekc7")]
+position = Vector2(312, 592)

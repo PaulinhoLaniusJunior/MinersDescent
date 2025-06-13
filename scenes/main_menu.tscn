@@ -1,13 +1,104 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmfyax4ic5sly"]
+[gd_scene load_steps=26 format=3 uid="uid://bmfyax4ic5sly"]
 
 [ext_resource type="Script" uid="uid://066ygx344a52" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://bkdsvx5dmxqfe" path="res://art/Fonts/ThaleahFat.ttf" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://c11el3mdqnqeu" path="res://art/image_3.jpg" id="2_wu84c"]
-[ext_resource type="Texture2D" uid="uid://rnq2fkseteb3" path="res://art/start_2.png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://du7imdrxb3wng" path="res://art/shops/botao.png" id="3_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://pq5kd8rhvab3" path="res://art/shops/botao_pressed.png" id="4_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://dmdx4832a7f0j" path="res://art/characters/idle_n.png" id="5_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://c8puljon0eisq" path="res://art/characters/slime.png" id="6_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://dyb7xpv0bamxx" path="res://sounds/music_menu.wav" id="7_oa1go"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="9_jk1qb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vue75"]
 texture = ExtResource("2_wu84c")
 modulate_color = Color(0.82606, 0.82606, 0.82606, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("5_rtw2f")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmy8"]
+atlas = ExtResource("5_rtw2f")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
+atlas = ExtResource("5_rtw2f")
+region = Rect2(320, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
+atlas = ExtResource("5_rtw2f")
+region = Rect2(400, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dd4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbmy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk1qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ajci")
+}],
+"loop": true,
+"name": &"miner",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dd4i"]
+atlas = ExtResource("6_rtw2f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("6_rtw2f")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flqon"]
+atlas = ExtResource("6_rtw2f")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
+atlas = ExtResource("6_rtw2f")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ajci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flqon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcqid")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
+texture = ExtResource("4_jk1qb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flqon"]
+texture = ExtResource("3_tbmy8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
+texture = ExtResource("4_jk1qb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
+texture = ExtResource("3_tbmy8")
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -27,53 +118,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vue75")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -76.0
-offset_right = 178.0
-offset_bottom = 182.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 8
-
-[node name="StartGame" type="TouchScreenButton" parent="VBoxContainer"]
-position = Vector2(56, 24)
-scale = Vector2(2.8, 2.24)
-texture_normal = ExtResource("3_8ln24")
-
-[node name="Label" type="Label" parent="VBoxContainer/StartGame"]
-texture_filter = 1
-offset_left = 25.7143
-offset_top = 10.7143
-offset_right = 65.7143
-offset_bottom = 33.7143
-theme_override_colors/font_color = Color(0.345098, 0.439216, 0.635294, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-text = "start"
-
-[node name="ExitGame" type="TouchScreenButton" parent="VBoxContainer"]
-position = Vector2(56, 144)
-scale = Vector2(2.8, 2.24)
-texture_normal = ExtResource("3_8ln24")
-
-[node name="Label" type="Label" parent="VBoxContainer/ExitGame"]
-texture_filter = 1
-offset_left = 22.8571
-offset_top = 10.7143
-offset_right = 62.8571
-offset_bottom = 33.7143
-theme_override_colors/font_color = Color(0.345098, 0.439216, 0.635294, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-text = "  Exit"
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -84,14 +128,89 @@ offset_top = 80.0
 offset_right = 216.0
 offset_bottom = 198.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.219608, 0.27451, 0.4, 1)
+theme_override_colors/font_color = Color(0.345098, 0.439216, 0.635294, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 93
-text = "Miner Game"
+text = "Miner's Descent"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_pressed"]
+[node name="miner" type="AnimatedSprite2D" parent="."]
+position = Vector2(130, 366)
+scale = Vector2(5.93243, 5.93243)
+sprite_frames = SubResource("SpriteFrames_5dd4i")
+animation = &"miner"
+frame_progress = 0.0063283
+
+[node name="slime" type="AnimatedSprite2D" parent="."]
+position = Vector2(1032, 368)
+scale = Vector2(5.375, 5.375)
+sprite_frames = SubResource("SpriteFrames_1ajci")
+animation = &"idle"
+frame_progress = 0.160442
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oa1go")
+volume_db = -24.163
+autoplay = true
+
+[node name="StartGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 264.0
+offset_right = 704.0
+offset_bottom = 361.0
+theme_override_fonts/font = ExtResource("9_jk1qb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rcqid")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1ajci")
+
+[node name="Label" type="Label" parent="StartGame"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 32.0
+scale = Vector2(2.8, 2.8)
+theme_override_colors/font_color = Color(0.345098, 0.439216, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+text = "start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 392.0
+offset_right = 704.0
+offset_bottom = 489.0
+theme_override_fonts/font = ExtResource("9_jk1qb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rcqid")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1ajci")
+
+[node name="Label" type="Label" parent="ExitGame"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 95.0
+offset_bottom = 32.0
+scale = Vector2(2.8, 2.8)
+theme_override_colors/font_color = Color(0.345098, 0.439216, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="ExitGame" to="." method="_on_exit_game_pressed"]

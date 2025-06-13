@@ -1,6 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://dac5prskil35w"]
+[gd_scene load_steps=31 format=3 uid="uid://dac5prskil35w"]
 
-[ext_resource type="Script" uid="uid://dyb07u52c4gmo" path="res://scripts/shops/shop_scene.gd" id="1_rryo0"]
+[ext_resource type="Script" uid="uid://dyb07u52c4gmo" path="res://scripts/shops/upgrade_shop_script.gd" id="1_rryo0"]
+[ext_resource type="Texture2D" uid="uid://byaon00vt4qph" path="res://art/shops/painel_loja.png" id="2_ccrwk"]
+[ext_resource type="Texture2D" uid="uid://pq5kd8rhvab3" path="res://art/shops/botao_pressed.png" id="3_ccrwk"]
+[ext_resource type="Texture2D" uid="uid://dujd2rwebyxqx" path="res://art/shops/painel_loja2.png" id="3_u84uy"]
+[ext_resource type="Texture2D" uid="uid://du7imdrxb3wng" path="res://art/shops/botao.png" id="4_u84uy"]
+[ext_resource type="Texture2D" uid="uid://bqcshj3yu4lt8" path="res://art/objects/pikareta.png" id="4_y5xo8"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="5_y5xo8"]
+[ext_resource type="Texture2D" uid="uid://bh5hag0kwrfiy" path="res://art/shops/sword_shop.png" id="8_c1iiv"]
+[ext_resource type="Texture2D" uid="uid://42tp4la0ikhq" path="res://art/shops/vida_shop1.png" id="9_2iwfe"]
+[ext_resource type="Texture2D" uid="uid://kmoybefuonfj" path="res://art/shops/exit.png" id="10_2iwfe"]
+[ext_resource type="AudioStream" uid="uid://diwrqcy3m5cc6" path="res://sounds/PurchaseSound.mp3" id="11_3rt0q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1iiv"]
+texture = ExtResource("2_ccrwk")
+expand_margin_top = 99.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyvw5"]
+texture = ExtResource("3_u84uy")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ccrwk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u84uy"]
+texture = ExtResource("3_ccrwk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsci4"]
+texture = ExtResource("4_u84uy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2iwfe"]
+texture = ExtResource("3_ccrwk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3rt0q"]
+texture = ExtResource("4_u84uy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hh4nm"]
+texture = ExtResource("3_u84uy")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u84uy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5xo8"]
+texture = ExtResource("3_ccrwk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccrwk"]
+texture = ExtResource("4_u84uy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xm3mh"]
+texture = ExtResource("3_ccrwk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tqjic"]
+texture = ExtResource("4_u84uy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htkeg"]
+texture = ExtResource("3_u84uy")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xo8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rt0q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lky4h"]
+texture = ExtResource("10_2iwfe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cq3wg"]
+texture = ExtResource("10_2iwfe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_84dbh"]
+texture = ExtResource("10_2iwfe")
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -11,69 +75,208 @@ script = ExtResource("1_rryo0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UpgradesContainer" type="GridContainer" parent="CanvasLayer"]
-offset_left = 128.0
-offset_top = 128.0
-offset_right = 1024.0
-offset_bottom = 512.0
+[node name="UpgradesContainer" type="Panel" parent="CanvasLayer"]
+offset_left = 240.0
+offset_top = 120.0
+offset_right = 1136.0
+offset_bottom = 504.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_c1iiv")
 
-[node name="MiningDamageUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer"]
-layout_mode = 2
-
-[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/MiningDamageUpgradeButton"]
+[node name="Mining" type="Panel" parent="CanvasLayer/UpgradesContainer"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 106.0
-offset_right = 305.0
-offset_bottom = 170.0
-text = "Minnig
-"
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 272.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_eyvw5")
 
-[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/MiningDamageUpgradeButton"]
+[node name="picareta" type="Sprite2D" parent="CanvasLayer/UpgradesContainer/Mining"]
+position = Vector2(96, 96)
+scale = Vector2(4.00278, 4.43182)
+texture = ExtResource("4_y5xo8")
+
+[node name="MiningDamageUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer/Mining"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 216.0
+offset_right = 168.0
+offset_bottom = 280.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ccrwk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_u84uy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bsci4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2iwfe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3rt0q")
+
+[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/Mining/MiningDamageUpgradeButton"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -240.0
+offset_right = 160.0
+offset_bottom = -216.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "UPGRADE DE PICARETA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/Mining/MiningDamageUpgradeButton"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/Mining/MiningDamageUpgradeButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.089
 anchor_top = -2.051
 anchor_right = -0.089
 anchor_bottom = -2.051
-offset_left = -39.99
-offset_top = -72.011
-offset_right = 152.01
-offset_bottom = -8.01099
-text = "level
-"
+offset_left = 28.816
+offset_top = 107.264
+offset_right = 72.816
+offset_bottom = 130.264
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "level"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/MiningDamageUpgradeButton"]
+[node name="attack" type="Panel" parent="CanvasLayer/UpgradesContainer"]
 layout_mode = 0
-offset_left = 242.0
-offset_top = 18.0
-offset_right = 314.0
-offset_bottom = 42.0
-text = "10"
+offset_left = 352.0
+offset_top = 8.0
+offset_right = 544.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_hh4nm")
 
-[node name="AttackDamageUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer"]
+[node name="espada" type="Sprite2D" parent="CanvasLayer/UpgradesContainer/attack"]
+position = Vector2(96, 96)
+scale = Vector2(8, 5.88095)
+texture = ExtResource("8_c1iiv")
+
+[node name="AttackDamageUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer/attack"]
 layout_mode = 2
+offset_left = 24.0
+offset_top = 216.0
+offset_right = 168.0
+offset_bottom = 280.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u84uy")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_y5xo8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ccrwk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xm3mh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tqjic")
 
-[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/AttackDamageUpgradeButton"]
+[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/attack/AttackDamageUpgradeButton"]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 213.0
-offset_right = 274.0
-offset_bottom = 277.0
+offset_left = -16.0
+offset_top = -240.0
+offset_right = 160.0
+offset_bottom = -217.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "UPGRADE DE ESPADA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/AttackDamageUpgradeButton"]
+[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/attack/AttackDamageUpgradeButton"]
 layout_mode = 0
-offset_left = 572.0
-offset_top = 44.0
-offset_right = 764.0
-offset_bottom = 108.0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/AttackDamageUpgradeButton"]
+[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/attack/AttackDamageUpgradeButton"]
 layout_mode = 0
-offset_left = 483.0
-offset_top = -5.0
-offset_right = 555.0
-offset_bottom = 18.0
+offset_left = 16.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Panel" parent="CanvasLayer/UpgradesContainer"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 8.0
+offset_right = 816.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_htkeg")
+
+[node name="HealthUpgradeButton" type="Button" parent="CanvasLayer/UpgradesContainer/Health"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 216.0
+offset_right = 168.0
+offset_bottom = 280.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y5xo8")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_u84uy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bsci4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2iwfe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3rt0q")
+
+[node name="UpgradeNameLabel" type="Label" parent="CanvasLayer/UpgradesContainer/Health/HealthUpgradeButton"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -240.0
+offset_right = 160.0
+offset_bottom = -216.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "UPGRADE DE VIDA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCostLabel" type="Label" parent="CanvasLayer/UpgradesContainer/Health/HealthUpgradeButton"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeLevelLabel" type="Label" parent="CanvasLayer/UpgradesContainer/Health/HealthUpgradeButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.089
+anchor_top = -2.051
+anchor_right = -0.089
+anchor_bottom = -2.051
+offset_left = 28.816
+offset_top = 107.264
+offset_right = 72.816
+offset_bottom = 130.264
+theme_override_fonts/font = ExtResource("5_y5xo8")
+text = "level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vida" type="Sprite2D" parent="CanvasLayer/UpgradesContainer/Health"]
+position = Vector2(96, 96)
+scale = Vector2(7.83333, 7.83333)
+texture = ExtResource("9_2iwfe")
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/UpgradesContainer"]
 layout_mode = 2
+offset_left = 840.0
+offset_top = -80.0
+offset_right = 864.0
+offset_bottom = -56.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3rt0q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lky4h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cq3wg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_84dbh")
+
+[node name="PurchaseSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_3rt0q")
+volume_db = -20.613

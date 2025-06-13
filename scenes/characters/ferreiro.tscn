@@ -1,8 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ceve7n3uff4nn"]
+[gd_scene load_steps=24 format=3 uid="uid://ceve7n3uff4nn"]
 
-[ext_resource type="Script" uid="uid://d2rex7kge4c8l" path="res://scripts/shops/upgrade_shop.gd" id="1_j378f"]
+[ext_resource type="Script" uid="uid://d2rex7kge4c8l" path="res://scripts/shops/upgrade_shop_scene.gd" id="1_j378f"]
 [ext_resource type="Texture2D" uid="uid://pqwhwaf4yqwc" path="res://art/Idle_Working.png" id="2_2vvs3"]
 [ext_resource type="PackedScene" uid="uid://dac5prskil35w" path="res://scenes/shops/shop_scene.tscn" id="3_3t5sh"]
+[ext_resource type="Texture2D" uid="uid://pq5kd8rhvab3" path="res://art/shops/botao_pressed.png" id="4_fdnr4"]
+[ext_resource type="Texture2D" uid="uid://du7imdrxb3wng" path="res://art/shops/botao.png" id="5_ltg0n"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="6_oah6i"]
+[ext_resource type="AudioStream" uid="uid://bgy1r5wgymuwx" path="res://sounds/Audio_-ferreiro.mp3" id="7_ltg0n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnr4"]
 
@@ -73,8 +77,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymtpr"]
 radius = 23.0868
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdnr4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltg0n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oah6i"]
+texture = ExtResource("5_ltg0n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bkspf"]
+texture = ExtResource("4_fdnr4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4iusa"]
+texture = ExtResource("5_ltg0n")
+
+[node name="ferreiro" type="CharacterBody2D"]
 script = ExtResource("1_j378f")
+
+[node name="ShopScene" parent="." instance=ExtResource("3_3t5sh")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fdnr4")
@@ -82,13 +101,47 @@ shape = SubResource("CircleShape2D_fdnr4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_v8h1m")
+frame_progress = 0.388337
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ymtpr")
 
-[node name="ShopScene" parent="Area2D" instance=ExtResource("3_3t5sh")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 532.0
+offset_top = 533.0
+offset_right = 562.0
+offset_bottom = 548.0
+scale = Vector2(4.8, 4.64286)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fdnr4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ltg0n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oah6i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bkspf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4iusa")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button"]
+layout_mode = 0
+offset_left = -3.75
+offset_top = 1.50769
+offset_right = 76.25
+offset_bottom = 24.5077
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_oah6i")
+text = "LOJA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlacksmithSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ltg0n")
+volume_db = -15.848
+pitch_scale = 0.7
+autoplay = true
+max_distance = 84.0
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=4 uid="uid://t6r7f844o7px"]
+[gd_scene load_steps=39 format=4 uid="uid://t6r7f844o7px"]
 
 [ext_resource type="Texture2D" uid="uid://ctesq6pyek086" path="res://art/tilesets/decorative.png" id="1_rv8di"]
+[ext_resource type="Script" uid="uid://drk4g47l12ujf" path="res://scripts/levels.gd" id="1_vf0s5"]
 [ext_resource type="Texture2D" uid="uid://b3b6u2gcoul8u" path="res://art/tilesets/mainlevbuild.png" id="2_cyham"]
 [ext_resource type="Texture2D" uid="uid://dxwwbxpgkb1jt" path="res://art/tilesets/MainLev2.0.png" id="3_osd4c"]
 [ext_resource type="Texture2D" uid="uid://q1yhf4inum0q" path="res://art/tilesets/Dungeon tileset.png" id="4_vf0s5"]
@@ -11,8 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://bspos3bu2rea4" path="res://scenes/characters/player.tscn" id="9_1s733"]
 [ext_resource type="PackedScene" uid="uid://2v16qmkjxcl8" path="res://scenes/controls.tscn" id="10_pjkcs"]
 [ext_resource type="PackedScene" uid="uid://1wbuavwxpk1b" path="res://scenes/money.tscn" id="11_5hn4h"]
-[ext_resource type="PackedScene" uid="uid://btfpvi1i21x0a" path="res://scenes/characters/enemy.tscn" id="12_oj3l6"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="13_m66dr"]
 [ext_resource type="PackedScene" uid="uid://pydsuttk2xxq" path="res://scenes/stones/stone_2.tscn" id="13_uja24"]
+[ext_resource type="PackedScene" uid="uid://1d0i3uhpdmj" path="res://scenes/door.tscn" id="15_m66dr"]
+[ext_resource type="PackedScene" uid="uid://dw7g07qfkmyhw" path="res://scenes/transition.tscn" id="16_hvtec"]
+[ext_resource type="AudioStream" uid="uid://sm4gvdk75663" path="res://sounds/music_fase3.wav" id="16_vf0s5"]
+[ext_resource type="PackedScene" uid="uid://btfpvi1i21x0a" path="res://scenes/characters/enemy.tscn" id="18_hvtec"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0vup"]
 texture = ExtResource("1_rv8di")
@@ -26849,7 +26854,8 @@ sources/4 = SubResource("TileSetAtlasSource_pn0t5")
 sources/5 = SubResource("TileSetAtlasSource_y8pck")
 sources/6 = SubResource("TileSetAtlasSource_4vgx3")
 
-[node name="Fase 3" type="Node2D"]
+[node name="fase3" type="Node2D"]
+script = ExtResource("1_vf0s5")
 
 [node name="ground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAIAAcAAQAvAA4AAAAKAAcAAQAxAA4AAAAIAAgAAQAvAA0AAAAIAAkAAQAvABEAAAAKAAgAAQAvABEAAAAKAAkAAQAvABEAAAAIAAoAAQAvAA0AAAAIAAsAAQAvAA4AAAAKAAoAAQAvABEAAAAKAAsAAQAvABEAAAAIAAwAAQAvABEAAAAIAA0AAQAvABEAAAAKAAwAAQAxAA0AAAAKAA0AAQAwABsAAAAIAA4AAQAvAA4AAAAKAA4AAQAvAA4AAAAKABAAAQAvABsAAAALAA4AAQAwABsAAAANAA4AAQAvAA4AAAAOAA4AAQAxABEAAAAQAA4AAQAxABEAAAATAA4AAQAvAA4AAAAUAAwAAQAvAA4AAAAUAA0AAQAxAA0AAAAWAAwAAQAvABEAAAAWAA0AAQAvABEAAAAXAAwAAQAvAA0AAAAXAA0AAQAvABEAAAAZAAwAAQAxAA0AAAAZAA0AAQAwABsAAAAaAAwAAQAvABEAAAAaAA0AAQAvAA4AAAAcAAwAAQAxAA0AAAAcAA0AAQAxAA4AAAAaAAoAAQAvABEAAAAaAAsAAQAvABEAAAAcAAoAAQAxAA0AAAAcAAsAAQAxAA4AAAAaAAgAAQAvABEAAAAaAAkAAQAvABEAAAAcAAgAAQAxAA0AAAAcAAkAAQAxAA4AAAAXAAgAAQAvABEAAAAXAAkAAQAvABEAAAAZAAgAAQAvABEAAAAZAAkAAQAvAA0AAAAUAAgAAQAvABEAAAAUAAkAAQAvAA0AAAAWAAgAAQAvABEAAAAWAAkAAQAvABEAAAARAAcAAQAvAA0AAAATAAcAAQAvAA0AAAAOAAcAAQAvAA0AAAAQAAcAAQAvAA0AAAALAAcAAQAvAA4AAAANAAcAAQAvAA0AAAALAAgAAQAvABEAAAALAAkAAQAvABEAAAANAAgAAQAxABEAAAANAAkAAQAxABEAAAALAAoAAQAvAA0AAAALAAsAAQAvAA0AAAANAAoAAQAvABEAAAANAAsAAQAvABEAAAAOAAoAAQAvABEAAAAOAAsAAQAxAA0AAAAQAAoAAQAvABEAAAAQAAsAAQAxAA0AAAARAAoAAQAvABEAAAARAAsAAQAxABEAAAATAAoAAQAxAA0AAAATAAsAAQAvABEAAAARAAgAAQAvABEAAAARAAkAAQAvABEAAAATAAgAAQAvABEAAAATAAkAAQAvABEAAAAOAAgAAQAxABEAAAAOAAkAAQAvABEAAAAQAAgAAQAvABEAAAAQAAkAAQAvABEAAAAFAAoAAQAvABEAAAAFAAsAAQAvABEAAAAHAAoAAQAvAA0AAAAHAAsAAQAxAA0AAAAFAAwAAQAvAA0AAAAFAA0AAQAxAA0AAAAHAAwAAQAxABEAAAAHAA0AAQAxABEAAAALAAwAAQAvABEAAAALAA0AAQAxABEAAAANAAwAAQAxAA0AAAANAA0AAQAwABsAAAAOAAwAAQAxABEAAAAOAA0AAQAxABEAAAAQAAwAAQAxAA0AAAAQAA0AAQAwABsAAAAFAAcAAQAvAA4AAAAHAAcAAQAxAA4AAAAFAAgAAQAvAA0AAAAFAAkAAQAvAA0AAAAHAAgAAQAvAA0AAAAHAAkAAQAvABEAAAARAAwAAQAxAA0AAAARAA0AAQAxAA0AAAATAAwAAQAxAA0AAAATAA0AAQAxABEAAAAUAAoAAQAvAA0AAAAUAAsAAQAxAA0AAAAWAAoAAQAvABEAAAAWAAsAAQAvABEAAAAUAA4AAQAwABsAAAAUAA8AAQAvABsAAAAWAA4AAQAwABsAAAAXAAoAAQAvAA0AAAAXAAsAAQAxAA0AAAAZAAoAAQAvAA0AAAAZAAsAAQAxAA4AAAAXAA8AAQAvABsAAAAFAA4AAQAxAA0AAAAFAA8AAQAuABoAAAAUAAcAAQAvAA0AAAAWAAcAAQAvAA0AAAAXAAcAAQAvAA4AAAAZAAcAAQAvAA0AAAAaAA4AAQAvAA4AAAAaAAYAAQAvAA0AAAAaAAcAAQAvABEAAAAcAAYAAQAxAA0AAAAcAAcAAQAxAA4AAAATAA8AAQAwABsAAAAQAA8AAQAvABsAAAAOAA8AAQAvAA4AAAAGAAcAAQAxAA0AAAAJAAkAAQAvABEAAAAMAAsAAQAvABEAAAAPAAwAAQAxABEAAAASAA0AAQAxABEAAAAYAA0AAQAxABEAAAAbAA0AAQAvABEAAAAbAAwAAQAvABEAAAAYAAsAAQAvAA0AAAAVAAsAAQAxAA0AAAASAAsAAQAxAA0AAAAMAA0AAQAxABEAAAAVABAAAQAvABwAAAAPAA0AAQAxABEAAAAPABAAAQAxABEAAAAVAA0AAQAvAA4AAAASAAwAAQAxAA0AAAAPAAsAAQAxAA0AAAAJAA0AAQAvAA4AAAAYAAwAAQAvAA0AAAAYAAoAAQAxAA0AAAAVAAgAAQAvABEAAAASAAcAAQAvAA0AAAAPAAcAAQAvAA0AAAAMAAcAAQAxAA0AAAAPAA8AAQAwABsAAAASAA4AAQAvAA4AAAAVAAoAAQAxAA0AAAASAAgAAQAvABEAAAAPAAgAAQAvABEAAAAMAAgAAQAvABEAAAAGAAwAAQAvABEAAAASABAAAQAwABwAAAAPAA4AAQAwABsAAAAJAAwAAQAvABEAAAAMAAwAAQAvABEAAAAYAAkAAQAvAA0AAAAVAAkAAQAvAA0AAAASAAkAAQAvABEAAAAPAAkAAQAvABEAAAAMAAoAAQAvAA0AAAAMAAkAAQAvABEAAAAYAAgAAQAvABEAAAAVAAcAAQAvAA0AAAAJAAgAAQAvAA0AAAAGAAkAAQAvABEAAAAJAAoAAQAvAA0AAAAJAA4AAQAvAA4AAAAPAAoAAQAvABEAAAASAAoAAQAvABEAAAAJAAsAAQAvABEAAAAbAA8AAQAvAA4AAAAbAAgAAQAxABEAAAAbAAcAAQAvABEAAAAGAAoAAQAvABEAAAAGAA4AAQAwABsAAAAGAA0AAQAwABsAAAAGAAgAAQAxAA4AAAAJAAcAAQAxAA4AAAAGAAsAAQAxAA4AAAAVAAwAAQAvAA4AAAAbAAoAAQAyAA4AAAAbAAsAAQAyAA4AAAAbAAkAAQAyAA4AAAAYAAcAAQAyAA4AAAAbAAYAAQAyAA4AAAAKAAYAAQAxAA0AAAALAAYAAQAxAA0AAAAMAAYAAQAxAA0AAAANAAYAAQAvAA0AAAAOAAYAAQAyAA4AAAAPAAYAAQAxAA0AAAAQAAYAAQAvAA0AAAARAAYAAQAxAA4AAAASAAYAAQAxAA0AAAATAAYAAQAvAA0AAAAUAAYAAQAuAA0AAAAVAAYAAQAxAA0AAAAWAAYAAQAvAA0AAAAXAAYAAQAyAA4AAAAYAAYAAQAyAA4AAAAZAAYAAQAyAA4AAAAFAAYAAQAvAA0AAAAGAAYAAQAxAA0AAAAHAAYAAQAxAA0AAAAIAAYAAQAvAA0AAAAJAAYAAQAyAA4AAAAZAA8AAQAvABsAAAAZAA4AAQAwABsAAAAbABAAAQAvABsAAAAbAA4AAQAvAA4AAAAcAA4AAQAxAA0AAAAcABAAAQAxABsAAAAcAA8AAQAxABoAAAAZABAAAQAvABwAAAAaAA8AAQAvABsAAAAaABAAAQAwABwAAAAXAA4AAQAvAA4AAAAYAA4AAQAvAA4AAAAYABAAAQAvAA4AAAAYAA8AAQAwABsAAAAXABAAAQAvABsAAAAWAA8AAQAwABsAAAAVAA4AAQAvAA4AAAAVAA8AAQAxABEAAAAWABAAAQAxABEAAAATABAAAQAvABwAAAAUABAAAQAvABsAAAARAA8AAQAwABsAAAARAA4AAQAvAA4AAAASAA8AAQAwABsAAAARABAAAQAvAA4AAAAQABAAAQAvABsAAAAOABAAAQAwABwAAAANAA8AAQAvABsAAAAMABAAAQAvAA4AAAAMAA8AAQAvABsAAAANABAAAQAvABwAAAAMAA4AAQAwABsAAAALAA8AAQAvABsAAAALABAAAQAvABsAAAAHAA4AAQAxABEAAAAIAA8AAQAvAA4AAAAGAA8AAQAxABEAAAAHAA8AAQAvABsAAAAJABAAAQAvABsAAAAJAA8AAQAvABsAAAAKAA8AAQAxABEAAAAGABAAAQAwABwAAAAFABAAAQAuABsAAAAHABAAAQAvABwAAAAIABAAAQAvABsAAAAEAA8AAgBfACYAAAAEABAAAgBfACYAAAAEABEAAgBfACYAAAAEABIAAgBfACYAAAAEABMAAgBfACYAAAAEABQAAgBfACYAAAAEABUAAgBfACYAAAAEABYAAgBfACYAAAAEABcAAgBfACYAAAAEABgAAgBfACYAAAAEABkAAgBfACYAAAAEABoAAgBfACYAAAAEABsAAgBfACYAAAAdABAAAgBfACYAAAAdABEAAgBfACYAAAAdABIAAgBfACYAAAAdAA8AAgBfACYAAAAdABMAAgBfACYAAAAdABQAAgBfACYAAAAdABUAAgBfACYAAAAdABYAAgBfACYAAAAdABcAAgBfACYAAAAdABgAAgBfACYAAAAdABkAAgBfACYAAAAdABoAAgBfACYAAAAdABsAAgBfACYAAAA=")
@@ -26864,7 +26870,7 @@ tile_map_data = PackedByteArray("AAAXAAIAAAAoAAcAAAAXAAMAAAAoAAgAAAAXAAQAAAAoAAk
 tile_set = SubResource("TileSet_y8pck")
 
 [node name="player" parent="." instance=ExtResource("9_1s733")]
-position = Vector2(402, 111)
+position = Vector2(400, 124)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -4)
@@ -26875,30 +26881,81 @@ limit_right = 470
 limit_bottom = 448
 
 [node name="Controls" parent="." instance=ExtResource("10_pjkcs")]
-visible = false
 
 [node name="Control" parent="Controls" instance=ExtResource("11_5hn4h")]
-visible = false
+
+[node name="Label" type="Label" parent="Controls"]
+offset_left = 456.0
+offset_right = 920.0
+offset_bottom = 88.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("13_m66dr")
+text = "Passagem Bloqueada
+(compre a chave com o guerreiro)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(80, 110, 93, 110, 93, 105, 101, 105, 101, 120, 138, 120, 138, 105, 163, 105, 163, 110, 189, 110, 189, 105, 194, 105, 194, 112, 206, 112, 206, 105, 259, 105, 259, 110, 285, 110, 285, 105, 355, 105, 355, 110, 368, 110, 368, 112, 384, 112, 384, 105, 384, 48, 416, 48, 416, 112, 432, 112, 432, 105, 451, 105, 451, 110, 463, 110, 464, 254, 445, 242, 441, 242, 442, 246, 437, 246, 442, 250, 434, 255, 421, 246, 418, 246, 418, 248, 417, 249, 406, 243, 408, 247, 408, 249, 399, 257, 397, 253, 398, 248, 397, 245, 391, 236, 386, 236, 380, 244, 376, 238, 378, 245, 374, 245, 379, 250, 369, 256, 360, 248, 355, 249, 355, 252, 346, 247, 337, 255, 328, 250, 332, 245, 329, 244, 325, 248, 318, 242, 313, 242, 314, 245, 313, 246, 308, 245, 314, 249, 307, 256, 292, 245, 288, 250, 288, 310, 294, 312, 305, 305, 311, 308, 316, 308, 314, 318, 336, 305, 348, 310, 360, 310, 357, 311, 360, 314, 352, 325, 357, 325, 355, 328, 367, 336, 360, 341, 350, 341, 343, 341, 339, 341, 351, 349, 355, 352, 350, 353, 346, 353, 356, 356, 362, 359, 364, 363, 369, 370, 358, 378, 354, 380, 353, 383, 353, 386, 346, 384, 341, 386, 340, 388, 354, 391, 355, 395, 354, 397, 338, 399, 332, 395, 328, 394, 333, 389, 330, 388, 325, 392, 318, 386, 314, 386, 314, 390, 309, 389, 314, 394, 306, 400, 297, 392, 291, 389, 291, 392, 288, 394, 288, 448, 288, 466, 257, 466, 256, 382, 252, 388, 249, 385, 250, 389, 246, 389, 251, 394, 242, 400, 232, 391, 226, 396, 218, 390, 216, 393, 209, 400, 189, 396, 195, 388, 203, 388, 197, 383, 193, 386, 190, 380, 184, 380, 184, 377, 181, 374, 176, 369, 182, 360, 201, 354, 199, 352, 190, 352, 191, 350, 195, 349, 207, 341, 200, 340, 192, 340, 183, 340, 178, 337, 179, 334, 187, 328, 195, 330, 200, 329, 187, 326, 188, 323, 197, 324, 189, 321, 184, 317, 185, 313, 187, 310, 192, 309, 199, 310, 203, 308, 206, 305, 211, 305, 214, 308, 217, 312, 221, 308, 225, 307, 229, 309, 234, 311, 237, 307, 242, 304, 246, 306, 251, 308, 251, 312, 250, 314, 250, 317, 250, 319, 256, 322, 256, 238, 252, 243, 248, 239, 250, 250, 241, 255, 232, 248, 224, 253, 218, 247, 209, 256, 199, 249, 204, 246, 202, 244, 196, 247, 187, 242, 184, 247, 186, 249, 177, 255, 166, 245, 162, 246, 163, 249, 160, 249, 150, 243, 151, 247, 151, 251, 143, 256, 141, 254, 142, 251, 142, 245, 139, 242, 136, 238, 133, 236, 129, 236, 126, 240, 124, 242, 122, 240, 122, 244, 119, 245, 121, 249, 124, 250, 121, 252, 116, 253, 113, 255, 106, 248, 102, 248, 99, 250, 99, 252, 96, 252, 92, 248, 90, 246, 88, 246, 88, 248, 87, 249, 85, 252, 84, 254, 81, 255, 80, 254, 80, 111, 70, 111, 57, 252, 58, 519, 529, 517, 519, 217, 499, 12, 46, 22, 55, 102)
 
-[node name="enemy" parent="." instance=ExtResource("12_oj3l6")]
-position = Vector2(125, 154)
-
-[node name="enemy4" parent="." instance=ExtResource("12_oj3l6")]
-position = Vector2(432, 212)
-
 [node name="stone2" parent="." instance=ExtResource("13_uja24")]
 position = Vector2(317, 363)
 
 [node name="stone3" parent="." instance=ExtResource("13_uja24")]
-position = Vector2(221, 352)
+position = Vector2(219, 331)
 
 [node name="stone4" parent="." instance=ExtResource("13_uja24")]
-position = Vector2(340, 212)
+position = Vector2(322, 169)
 
 [node name="stone5" parent="." instance=ExtResource("13_uja24")]
-position = Vector2(188, 138)
+position = Vector2(123, 219)
+
+[node name="door" parent="." node_paths=PackedStringArray("transition_controller", "feedback_label") instance=ExtResource("15_m66dr")]
+position = Vector2(400, 90)
+next_level = "res://scenes/worlds/world_2.tscn"
+required_key_flag = "key2"
+transition_controller = NodePath("../transition")
+feedback_label = NodePath("../Controls/Label")
+
+[node name="transition" parent="." instance=ExtResource("16_hvtec")]
+
+[node name="door2" parent="." node_paths=PackedStringArray("transition_controller", "feedback_label") instance=ExtResource("15_m66dr")]
+position = Vector2(272, 461)
+next_level = "res://scenes/worlds/world_4.tscn"
+required_key_flag = "key3"
+transition_controller = NodePath("../transition")
+feedback_label = NodePath("../Controls/Label")
+
+[node name="world2" type="Marker2D" parent="."]
+position = Vector2(400, 124)
+
+[node name="world4" type="Marker2D" parent="."]
+position = Vector2(272, 432)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_vf0s5")
+volume_db = -24.163
+autoplay = true
+
+[node name="stone6" parent="." instance=ExtResource("13_uja24")]
+position = Vector2(431, 216)
+
+[node name="stone7" parent="." instance=ExtResource("13_uja24")]
+position = Vector2(184, 142)
+
+[node name="stone8" parent="." instance=ExtResource("13_uja24")]
+position = Vector2(221, 377)
+
+[node name="enemy" parent="." instance=ExtResource("18_hvtec")]
+position = Vector2(230, 126)
+
+[node name="enemy2" parent="." instance=ExtResource("18_hvtec")]
+position = Vector2(306, 218)
+
+[node name="enemy3" parent="." instance=ExtResource("18_hvtec")]
+position = Vector2(444, 166)
+
+[node name="enemy4" parent="." instance=ExtResource("18_hvtec")]
+position = Vector2(112, 159)

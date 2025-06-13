@@ -1,34 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://i48rqn4chhhk"]
+[gd_scene load_steps=5 format=3 uid="uid://i48rqn4chhhk"]
 
 [ext_resource type="Script" uid="uid://cvk17uiw6phoe" path="res://scripts/stones/stone.gd" id="1_pd82o"]
 [ext_resource type="Texture2D" uid="uid://cvdyq05ogov04" path="res://art/objects/pedra1.png" id="2_pd82o"]
-
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pd82o"]
-atlas = ExtResource("2_pd82o")
-region = Rect2(0, 0, 30, 40)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p22wh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pd82o")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="AudioStream" uid="uid://cmw6iubxd41f0" path="res://sounds/Audio_-picareta-1.mp3" id="3_lcev6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i5exi"]
-radius = 30.0
+radius = 38.0132
 
 [node name="stone" type="CharacterBody2D"]
 script = ExtResource("1_pd82o")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -13)
-sprite_frames = SubResource("SpriteFrames_p22wh")
-offset = Vector2(0, -6)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("2_pd82o")
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -57,6 +41,10 @@ show_percentage = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-15, 3, -14, -4, -13, -4, -13, -5, -12, -5, -8, -12, 0, -20, 7, -13, 12, -5, 13, -5, 13, -3, 13, 0, 13, 3)
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lcev6")
+volume_db = -15.928
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

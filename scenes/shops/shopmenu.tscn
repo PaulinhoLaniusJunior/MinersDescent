@@ -1,71 +1,287 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccmiwf6eob2w2"]
+[gd_scene load_steps=29 format=3 uid="uid://ccmiwf6eob2w2"]
 
-[ext_resource type="Script" uid="uid://vm5d6on60352" path="res://scripts/shops/shopmenu.gd" id="1_fwp1b"]
-[ext_resource type="Texture2D" uid="uid://bqcshj3yu4lt8" path="res://art/objects/pikareta.png" id="2_lr38a"]
-[ext_resource type="Texture2D" uid="uid://bg2ujwgrjva87" path="res://art/objects/stone_2.png" id="3_0w306"]
-[ext_resource type="Texture2D" uid="uid://cbybtim7c0xun" path="res://art/tilesets/candleA_02.png" id="4_r4cpj"]
+[ext_resource type="Script" uid="uid://vm5d6on60352" path="res://scripts/shops/shopmenu.gd" id="1_fd2go"]
+[ext_resource type="Texture2D" uid="uid://bgy5gcscno8t3" path="res://art/shops/fundo_shop.png" id="2_ec5j3"]
+[ext_resource type="Texture2D" uid="uid://ce3gd02ugfybu" path="res://art/shops/chave_1.png" id="3_1ofjs"]
+[ext_resource type="Texture2D" uid="uid://1rigvfqyriln" path="res://art/shops/painel_loja3.png" id="3_4wold"]
+[ext_resource type="Texture2D" uid="uid://wqunvnmcxe8x" path="res://art/shops/chave2.png" id="4_4wold"]
+[ext_resource type="Texture2D" uid="uid://bi43ak0uijetg" path="res://art/shops/chave3.png" id="5_c40eh"]
+[ext_resource type="Texture2D" uid="uid://c5bl1hmmd7mdw" path="res://art/shops/chave4.png" id="6_w5snn"]
+[ext_resource type="Texture2D" uid="uid://du7imdrxb3wng" path="res://art/shops/botao.png" id="8_c40eh"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="8_n1hgu"]
+[ext_resource type="Texture2D" uid="uid://pq5kd8rhvab3" path="res://art/shops/botao_pressed.png" id="9_cuxdd"]
+[ext_resource type="Texture2D" uid="uid://kmoybefuonfj" path="res://art/shops/exit.png" id="11_hvnxh"]
+[ext_resource type="AudioStream" uid="uid://diwrqcy3m5cc6" path="res://sounds/PurchaseSound.mp3" id="12_wtxrv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu7g0"]
-size = Vector2(1153, 649)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeiru"]
+texture = ExtResource("2_ec5j3")
+expand_margin_top = 99.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cuxdd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hvnxh"]
+texture = ExtResource("9_cuxdd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtxrv"]
+texture = ExtResource("8_c40eh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12mx0"]
+texture = ExtResource("9_cuxdd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2epf4"]
+texture = ExtResource("8_c40eh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5snn"]
+texture = ExtResource("3_4wold")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvnxh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5fio7"]
+texture = ExtResource("9_cuxdd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ul66h"]
+texture = ExtResource("8_c40eh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ns5ec"]
+texture = ExtResource("9_cuxdd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mxim"]
+texture = ExtResource("8_c40eh")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtxrv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgugk"]
+texture = ExtResource("11_hvnxh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fc84b"]
+texture = ExtResource("11_hvnxh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pxkl"]
+texture = ExtResource("11_hvnxh")
 
 [node name="SHOPMENU" type="StaticBody2D"]
 position = Vector2(-3, 0)
-script = ExtResource("1_fwp1b")
+script = ExtResource("1_fd2go")
 
 [node name="menu" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="menu"]
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 1024.0
-offset_bottom = 392.0
-color = Color(0, 0, 0, 0.686275)
-
-[node name="Label" type="Label" parent="menu"]
-offset_left = 816.0
-offset_top = 152.0
-offset_right = 853.0
-offset_bottom = 175.0
-text = "200k"
-
-[node name="Label2" type="Label" parent="menu"]
-offset_left = 568.0
-offset_top = 144.0
-offset_right = 600.0
-offset_bottom = 167.0
-text = "20k"
-
-[node name="Area2D" type="Area2D" parent="menu"]
 visible = false
-position = Vector2(-3, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/Area2D"]
-position = Vector2(575.5, 323.5)
-shape = SubResource("RectangleShape2D_wu7g0")
+[node name="Panel" type="Panel" parent="menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -204.0
+offset_right = 553.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_oeiru")
 
-[node name="buyKey1" type="TouchScreenButton" parent="menu"]
-position = Vector2(256, 192)
-scale = Vector2(4.57143, 5.81818)
-texture_normal = ExtResource("2_lr38a")
+[node name="buyKey1" type="Button" parent="menu/Panel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 224.0
+offset_right = 208.0
+offset_bottom = 273.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cuxdd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hvnxh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wtxrv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_12mx0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2epf4")
 
-[node name="buyKey2" type="TouchScreenButton" parent="menu"]
-position = Vector2(512, 192)
-scale = Vector2(2.56, 2.56)
-texture_normal = ExtResource("3_0w306")
+[node name="panel_key1" type="Panel" parent="menu/Panel/buyKey1"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -176.0
+offset_right = 133.0
+offset_bottom = -31.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5snn")
 
-[node name="buyKey3" type="TouchScreenButton" parent="menu"]
-position = Vector2(768, 192)
-scale = Vector2(18.2857, 8.53333)
-texture_normal = ExtResource("4_r4cpj")
+[node name="key1" type="Sprite2D" parent="menu/Panel/buyKey1"]
+position = Vector2(64, -104)
+texture = ExtResource("3_1ofjs")
 
-[node name="Label3" type="Label" parent="menu"]
-offset_left = 312.0
-offset_top = 152.0
-offset_right = 331.0
-offset_bottom = 175.0
+[node name="price1" type="Label" parent="menu/Panel/buyKey1"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 120.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_n1hgu")
 text = "5k"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="body_entered" from="menu/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="menu/buyKey1" to="." method="_on_buy_key_1_pressed"]
-[connection signal="pressed" from="menu/buyKey2" to="." method="_on_buy_key_2_pressed"]
-[connection signal="pressed" from="menu/buyKey3" to="." method="_on_buy_key_3_pressed"]
+[node name="Label" type="Label" parent="menu/Panel/buyKey1"]
+layout_mode = 0
+offset_top = -200.0
+offset_right = 120.0
+offset_bottom = -177.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "FASE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buyKey2" type="Button" parent="menu/Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 224.0
+offset_right = 392.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cuxdd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hvnxh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wtxrv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_12mx0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2epf4")
+
+[node name="Panel_key2" type="Panel" parent="menu/Panel/buyKey2"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -176.0
+offset_right = 136.0
+offset_bottom = -32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5snn")
+
+[node name="price2" type="Label" parent="menu/Panel/buyKey2"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 128.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "5k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="key2" type="Sprite2D" parent="menu/Panel/buyKey2"]
+position = Vector2(64, -104)
+texture = ExtResource("4_4wold")
+
+[node name="Label" type="Label" parent="menu/Panel/buyKey2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -200.0
+offset_right = 128.0
+offset_bottom = -177.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "FASE 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buyKey3" type="Button" parent="menu/Panel"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 224.0
+offset_right = 584.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cuxdd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hvnxh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wtxrv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_12mx0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2epf4")
+
+[node name="panel_key3" type="Panel" parent="menu/Panel/buyKey3"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -176.0
+offset_right = 136.0
+offset_bottom = -32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5snn")
+
+[node name="price3" type="Label" parent="menu/Panel/buyKey3"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 128.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "5k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="key3" type="Sprite2D" parent="menu/Panel/buyKey3"]
+position = Vector2(64, -104)
+texture = ExtResource("5_c40eh")
+
+[node name="Label" type="Label" parent="menu/Panel/buyKey3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -200.0
+offset_right = 128.0
+offset_bottom = -177.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "FASE 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buyKey4" type="Button" parent="menu/Panel"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 224.0
+offset_right = 768.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hvnxh")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_5fio7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ul66h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ns5ec")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4mxim")
+
+[node name="Panel_key4" type="Panel" parent="menu/Panel/buyKey4"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -176.0
+offset_right = 136.0
+offset_bottom = -32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5snn")
+
+[node name="key4" type="Sprite2D" parent="menu/Panel/buyKey4"]
+position = Vector2(64, -104)
+texture = ExtResource("6_w5snn")
+
+[node name="price4" type="Label" parent="menu/Panel/buyKey4"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 128.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "5k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="menu/Panel/buyKey4"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -200.0
+offset_right = 128.0
+offset_bottom = -177.0
+theme_override_fonts/font = ExtResource("8_n1hgu")
+text = "FASE 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="menu"]
+offset_left = 1096.0
+offset_top = 32.0
+offset_right = 1120.0
+offset_bottom = 56.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wtxrv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jgugk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fc84b")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2pxkl")
+
+[node name="PurchaseSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_wtxrv")
+volume_db = -20.613

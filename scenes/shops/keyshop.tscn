@@ -1,18 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://df8j4de1gtt88"]
+[gd_scene load_steps=23 format=3 uid="uid://df8j4de1gtt88"]
 
 [ext_resource type="Script" uid="uid://bjlmqd54do2d" path="res://scripts/shops/keyshop.gd" id="1_24mvk"]
-[ext_resource type="Texture2D" uid="uid://c430fq0hqspym" path="res://art/characters/idle.png" id="2_uoj73"]
+[ext_resource type="Texture2D" uid="uid://b7wlxyl82ybp0" path="res://art/characters/Blue_Knight_idle_Sprite-sheet_16x16.png" id="2_x4tue"]
 [ext_resource type="PackedScene" uid="uid://ccmiwf6eob2w2" path="res://scenes/shops/shopmenu.tscn" id="3_uoj73"]
+[ext_resource type="Texture2D" uid="uid://du7imdrxb3wng" path="res://art/shops/botao.png" id="4_x4tue"]
+[ext_resource type="Texture2D" uid="uid://pq5kd8rhvab3" path="res://art/shops/botao_pressed.png" id="5_kmc0m"]
+[ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="6_ub2oa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwdrn"]
-atlas = ExtResource("2_uoj73")
-region = Rect2(0, 80, 80, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmc0m"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub2oa"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbj2v"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3oev"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iixv1"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcwum"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_natdo"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arkgp"]
+atlas = ExtResource("2_x4tue")
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fh1cx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pwdrn")
+"texture": SubResource("AtlasTexture_kmc0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub2oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbj2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3oev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iixv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcwum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_natdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arkgp")
 }],
 "loop": true,
 "name": &"default",
@@ -25,11 +77,25 @@ radius = 6.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1wkx"]
 radius = 15.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbj2v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3oev"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iixv1"]
+texture = ExtResource("4_x4tue")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcwum"]
+texture = ExtResource("5_kmc0m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_natdo"]
+texture = ExtResource("4_x4tue")
+
 [node name="keyshop" type="StaticBody2D"]
 script = ExtResource("1_24mvk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fh1cx")
+frame_progress = 0.00235149
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -42,8 +108,34 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_e1wkx")
 
 [node name="SHOPMENU" parent="Area2D" instance=ExtResource("3_uoj73")]
-visible = false
 position = Vector2(-483, -329)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 532.0
+offset_top = 533.0
+offset_right = 562.0
+offset_bottom = 548.0
+scale = Vector2(4.8, 4.64286)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbj2v")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n3oev")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iixv1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fcwum")
+theme_override_styles/normal = SubResource("StyleBoxTexture_natdo")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button"]
+layout_mode = 0
+offset_left = -3.75
+offset_top = 1.50769
+offset_right = 76.25
+offset_bottom = 24.5077
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_ub2oa")
+text = "LOJA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

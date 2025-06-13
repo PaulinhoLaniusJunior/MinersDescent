@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ojcrwpg4xchh"]
+
+[ext_resource type="Script" uid="uid://bncdm22st6w2s" path="res://scripts/stones/stone_4.gd" id="1_ccmtj"]
+[ext_resource type="Texture2D" uid="uid://cnt4fl1yq871h" path="res://art/pedra_mapa_4.png" id="1_ij6vw"]
+[ext_resource type="AudioStream" uid="uid://cmw6iubxd41f0" path="res://sounds/Audio_-picareta-1.mp3" id="2_ghijl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44cfe"]
+radius = 15.0
+
+[node name="stone 4" type="CharacterBody2D"]
+script = ExtResource("1_ccmtj")
+
+[node name="PedraMapa4" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("1_ij6vw")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_44cfe")
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_hitbox"]
+polygon = PackedVector2Array(-12, -2, -4, 1, 2, 1, 9, 0, 13, -3, 14, -5, 14, -7, 13, -9, 13, -11, 12, -15, 11, -18, 10, -22, 8, -25, 7, -27, 6, -30, 4, -33, 3, -35, 1, -36, -1, -37, -1, -36, -3, -34, -6, -30, -6, -28, -10, -23, -12, -19, -14, -15, -14, -11, -15, -6, -13, -3)
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.207843, 0.811765, 0.207843, 1)
+offset_left = -5.0
+offset_top = 1.0
+offset_right = 105.0
+offset_bottom = 18.0
+scale = Vector2(0.1, 0.1)
+max_value = 100000.0
+show_percentage = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -6)
+scale = Vector2(1.9857, 1.9857)
+polygon = PackedVector2Array(-4.53241, 2.0144, -6.04321, 1.0072, -5.53961, -0.503601, -5.03601, -1.5108, -4.02881, -3.0216, -1.0072, -6.04321, 0.503601, -5.03601, 2.518, -4.02881, 3.52521, -2.0144, 4.02881, -1.5108, 4.53241, -1.0072, 5.03601, 0, 4.02881, 1.5108, 1.84737, 3)
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ghijl")
+volume_db = -15.928
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

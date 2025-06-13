@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://1wbuavwxpk1b"]
 
 [ext_resource type="Script" uid="uid://w4jvwlh523xj" path="res://scripts/money.gd" id="1_u5i7v"]
-[ext_resource type="Texture2D" uid="uid://sqedwpwn6a3g" path="res://art/HUD_Money.png" id="2_6q70k"]
-[ext_resource type="Texture2D" uid="uid://dce2ve8sd3dvy" path="res://art/HUD_Perfil.png" id="3_rdbfl"]
+[ext_resource type="Texture2D" uid="uid://sqedwpwn6a3g" path="res://art/Controlers/HUD_Money.png" id="2_6q70k"]
+[ext_resource type="Texture2D" uid="uid://dce2ve8sd3dvy" path="res://art/Controlers/HUD_Perfil.png" id="3_rdbfl"]
 [ext_resource type="FontFile" uid="uid://ce3qevivvkgo6" path="res://art/Fonts/Pixelme.ttf" id="4_deygv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iak8e"]
@@ -46,6 +46,6 @@ offset_left = 130.0
 offset_top = 67.0
 offset_right = 326.0
 offset_bottom = 107.0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.4, 1.4)
 theme_override_fonts/normal_font = ExtResource("4_deygv")
 text = "0"
